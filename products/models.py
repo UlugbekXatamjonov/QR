@@ -73,7 +73,7 @@ class Mahsulot(models.Model):
     url = get_absolute_url
 
     def avatar(self):
-        return mark_safe('<img src="/media/%s" width="50" height="50" />' % (self.rasm))
+        return mark_safe('<img src="/media/%s" width="50" height="50" />' % (self.rasm) ) # default='<img src="/media/default_pictures/"'
 
     avatar.short_description = 'Mahsulot rasmi'
 
