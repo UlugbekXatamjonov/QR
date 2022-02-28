@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 
     # internal apps
     'products.apps.ProductsConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -153,3 +154,6 @@ REST_FRAMEWORK = {
     ]
 }
 
+
+AUTH_USER_MODEL = 'users.User'
+CORS_ORIGIN_ALLOW_ALL = True

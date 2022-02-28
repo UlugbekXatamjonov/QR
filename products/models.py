@@ -7,7 +7,7 @@ from PIL import Image, ImageDraw
 from django.urls import reverse
 from datetime import datetime
 
-
+ 
 # Create your models here.
 RANG = (
     ('qora','Qora'),
@@ -70,7 +70,7 @@ class Mahsulot(models.Model):
                              self.sana.day,
                              self.pk])
 
-    url = get_absolute_url
+
 
     def avatar(self):
         return mark_safe('<img src="/media/%s" width="50" height="50" />' % (self.rasm) ) # default='<img src="/media/default_pictures/"'
@@ -86,8 +86,8 @@ class Mahsulot(models.Model):
             \nMuddati: {self.mudat} \nOg'irligi: {self.kg} kg \
             \nIshlab chiqarilgan vaqti: {self.sana}"
 
-        # data2 = f"\nUrl: {self.get_absolute_url()}"
-        qrcode_img = qrcode.make(data)
+        data2 = f"\nUrl: {self.get_absolute_url}"
+        qrcode_img = qrcode.make(data + data2)
         canvas = Image.new('RGB', (1000, 1000), 'white')
         draw = ImageDraw.Draw(canvas)
         canvas.paste(qrcode_img)
