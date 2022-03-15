@@ -40,17 +40,41 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
     # external apps
     'qr_code',
     'rest_framework',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
+    'dj_rest_auth.registration',
+    'rest_auth',
+    'allauth',
+    'allauth.account',
+    'drf_yasg',
     'whitenoise',
     "corsheaders",
-
+    # 'rest_auth',
 
     # internal apps
     'products.apps.ProductsConfig',
     'users.apps.UsersConfig',
+    'boss.apps.BossConfig',
 ]
+
+# REST FREAMEWORK settings
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES':[
+        'rest_framework.permissions.AllowAny'
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
+
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -120,7 +144,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
 
@@ -147,21 +171,12 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # Static settings 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 
 
-# REST FREAMEWORK settings
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES':[
-        'rest_framework.permissions.AllowAny'
-    ]
-}
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
-    ]
-}
+
+
 
 
 
@@ -175,3 +190,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:8000",
     'https://qrproject.pythonanywhere.com',
 ]
+
+# EMAIL BACKEND SETTINGS
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+

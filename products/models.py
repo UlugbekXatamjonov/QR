@@ -1,5 +1,3 @@
-
-
 from django.db import models
 from django.utils.html import mark_safe
 import qrcode
@@ -59,7 +57,8 @@ class Mahsulot(models.Model):
     mudat  = models.CharField(max_length=150, choices=MUDDAT, default='x', verbose_name='Yaroqlilik mudati', null=True, blank=True)
     kg = models.IntegerField(default=0, verbose_name="Mahsulot og'irligi(kg)", null=True, blank=True)
     qr_code= models.ImageField(upload_to='QR_codes/%Y/%m/%d/', verbose_name='Mahsulot QR codi', null=True, blank=True)
-    sana = models.DateTimeField(auto_now_add=True, verbose_name='Ishlab chiqarilgan sana') # Ishlab chiqarilgan vaqti
+    izoh = models.CharField(max_length=300, null=True, blank=True, verbose_name="Qo'shimcha izoh")
+    sana = models.DateField(auto_now_add=False, auto_now=False, verbose_name='Omborga kelgan sana')
     yangilanish = models.DateTimeField(auto_now=True, verbose_name="O'zgartirish kiritilgan sana")
     def __str__(self): 
         return self.nom
