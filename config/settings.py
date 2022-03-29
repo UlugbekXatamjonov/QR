@@ -44,23 +44,27 @@ INSTALLED_APPS = [
 
     # external apps
     'qr_code',
-    'rest_framework',
-    'rest_framework.authtoken',
-    'dj_rest_auth',
-    'dj_rest_auth.registration',
-    'rest_auth',
-    'allauth',
-    'allauth.account',
     'drf_yasg',
     'whitenoise',
     "corsheaders",
-    # 'rest_auth',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
+    'rest_auth.registration',
+    # 'dj_rest_auth',
+    # 'dj_rest_auth.registration',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 
     # internal apps
-    'products.apps.ProductsConfig',
-    'users.apps.UsersConfig',
-    'boss.apps.BossConfig',
+    # 'products.apps.ProductsConfig',
+    'products'
 ]
+
+
+# AUTH_USER_MODEL = 'products.CostomUser'
+
 
 # REST FREAMEWORK settings
 REST_FRAMEWORK = {
@@ -192,6 +196,4 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 # EMAIL BACKEND SETTINGS
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-

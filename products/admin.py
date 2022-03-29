@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Mahsulot
+from .models import Mahsulot, CostomUser
 
 
 # Register your models here.
@@ -13,3 +13,4 @@ class MahsulotAdmin(admin.ModelAdmin):
 
 
     
+admin.site.register(CostomUser)
